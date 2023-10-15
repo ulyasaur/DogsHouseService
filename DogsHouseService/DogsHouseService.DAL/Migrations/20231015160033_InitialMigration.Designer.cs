@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DogsHouseService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20231013211630_InitialMigration")]
+    [Migration("20231015160033_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -27,17 +27,21 @@ namespace DogsHouseService.DAL.Migrations
             modelBuilder.Entity("DogsHouseService.DAL.Models.Dog", b =>
                 {
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("name");
 
                     b.Property<string>("Color")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("color");
 
                     b.Property<int>("TailLength")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("tail_length");
 
                     b.Property<int>("Weight")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("weight");
 
                     b.HasKey("Name");
 

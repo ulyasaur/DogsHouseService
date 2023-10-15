@@ -21,6 +21,11 @@ namespace DogsHouseService.DAL
             base.OnModelCreating(builder);
 
             builder.Entity<Dog>().HasKey(d => d.Name);
+
+            builder.Entity<Dog>().Property(d => d.Name).HasColumnName("name");
+            builder.Entity<Dog>().Property(d => d.Color).HasColumnName("color");
+            builder.Entity<Dog>().Property(d => d.TailLength).HasColumnName("tail_length");
+            builder.Entity<Dog>().Property(d => d.Weight).HasColumnName("weight");
         }
     }
 }

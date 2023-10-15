@@ -14,14 +14,14 @@ namespace DogsHouseService.DAL.Migrations
                 name: "Dogs",
                 columns: table => new
                 {
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TailLength = table.Column<int>(type: "int", nullable: false),
-                    Weight = table.Column<int>(type: "int", nullable: false)
+                    name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    color = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tail_length = table.Column<int>(type: "int", nullable: false),
+                    weight = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dogs", x => x.Name);
+                    table.PrimaryKey("PK_Dogs", x => x.name);
                 });
         }
 
