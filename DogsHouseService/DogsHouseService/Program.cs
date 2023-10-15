@@ -1,4 +1,14 @@
+using DogsHouseService.DAL;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+IConfiguration appConfig = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+builder.Services.AddDbContext<ApplicationContext>(options =>
+    options.UseSqlServer(appConfig.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 
