@@ -39,11 +39,14 @@ if (rateSettings is null)
 
 builder.Services.AddRateLimiter(rateLimiterOptions =>
 {
-    rateLimiterOptions.AddConcurrencyLimiter("concurrency", options =>
+    rateLimiterOptions.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+    rateLimiterOptions.AddFixedWindowLimiter("fixed", options =>
     {
         options.PermitLimit = rateSettings.RequestLimit!.Value;
+        options.Window = TimeSpan.FromSeconds(rateSettings.AllowedRequestTimespan!.Value);
         options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-        options.QueueLimit = 5;
+        options.QueueLimit = 0;
     });
 });
 
@@ -69,6 +72,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseRateLimiter();
 
 app.MapControllers();
 

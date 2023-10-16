@@ -8,7 +8,7 @@ namespace DogsHouseService.Controllers
 {
     [Route("/[controller]")]
     [ApiController]
-    [EnableRateLimiting("concurrency")]
+    [EnableRateLimiting("fixed")]
     public class DogsController : ControllerBase
     {
         private readonly IDogsService _dogsService;

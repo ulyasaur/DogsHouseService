@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace DogsHouseService.Controllers
 {
     [Route("/[controller]")]
     [ApiController]
+    [EnableRateLimiting("fixed")]
     public class PingController : ControllerBase
     {
         [HttpGet]
