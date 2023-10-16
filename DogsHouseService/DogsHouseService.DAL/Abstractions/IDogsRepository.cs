@@ -15,6 +15,6 @@ namespace DogsHouseService.DAL.Abstractions
 
         Task<Dog?> FindDogByExpressionAsync(Expression<Func<Dog, bool>> predicate);
 
-        Task<PagedList<Dog>> GetDogsByExpressionAsync(Expression<Func<Dog, bool>> predicate, PagingParams pagingParams);
+        Task<List<Dog>> GetDogsAsync(PagingParams pagingParams, SortingParams sortingParams);
     }
 }

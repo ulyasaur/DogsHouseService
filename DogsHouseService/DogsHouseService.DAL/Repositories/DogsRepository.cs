@@ -1,13 +1,9 @@
 ﻿using DogsHouseService.DAL.Abstractions;
+using DogsHouseService.DAL.Extensions;
 using DogsHouseService.DAL.Models;
 using DogsHouseService.DAL.Models.Common;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DogsHouseService.DAL.Repositories
 {
@@ -25,11 +21,23 @@ namespace DogsHouseService.DAL.Repositories
             return await _dbContext.Dogs.FirstOrDefaultAsync(predicate);
         }
 
-        public Task<PagedList<Dog>> GetDogsByExpressionAsync(Expression<Func<Dog, bool>> predicate, PagingParams pagingParams)
+        public async Task<List<Dog>> GetDogsAsync(PagingParams pagingParams, SortingParams sortingParams)
         {
-            IQueryable<Dog> dogs = _dbContext.Dogs.Where(predicate);
+            IQueryable<Dog> dogs = _dbContext.Dogs;
 
-            return PagedList<Dog>.CreateAsync(dogs, pagingParams.PageNumber, pagingParams.PageSize);
+            if (pagingParams is { PageNumber: not null, PageSize: not null})
+            {
+                dogs = dogs
+                    .Skip((pagingParams.PageNumber!.Value - 1) * pagingParams.PageSize!.Value)
+                    .Take(pagingParams.PageSize!.Value);
+            }
+
+            if (sortingParams is { Attribute: not null, SortingOrder: not null })
+            {
+                dogs = dogs.OrderByParams(sortingParams);
+            }
+
+            return await dogs.ToListAsync();
         }
 
         public async Task InsertDogAsync(Dog dog)

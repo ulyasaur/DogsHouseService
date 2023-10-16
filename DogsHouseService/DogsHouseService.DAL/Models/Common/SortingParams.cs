@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DogsHouseService.DAL.Models.Common
 {
-    public class PagingParams
+    public class SortingParams
     {
-        public int? PageNumber { get; set; } = 1;
+        public string? Attribute { get; set; }
 
-        public int? PageSize { get; set; } = 10;
+        public string? SortingOrder { get; set; }
     }
 }
