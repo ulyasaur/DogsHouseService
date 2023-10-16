@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogsHouseService", "DogsHouseService\DogsHouseService.csproj", "{DC93730A-82EF-486C-8948-345F6AFC0057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogsHouseService", "DogsHouseService\DogsHouseService.csproj", "{DC93730A-82EF-486C-8948-345F6AFC0057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogsHouseService.DAL", "DogsHouseService.DAL\DogsHouseService.DAL.csproj", "{D697FF44-1C47-4D77-A163-77897393B72B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogsHouseService.DAL", "DogsHouseService.DAL\DogsHouseService.DAL.csproj", "{D697FF44-1C47-4D77-A163-77897393B72B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogsHouseService.BLL", "DogsHouseService.BLL\DogsHouseService.BLL.csproj", "{62B27E21-0159-475E-A10D-AA86581D0A1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogsHouseService.Tests", "DogsHouseService.Tests\DogsHouseService.Tests.csproj", "{581630C7-08A7-46E5-9714-8F7616AF03F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D697FF44-1C47-4D77-A163-77897393B72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D697FF44-1C47-4D77-A163-77897393B72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D697FF44-1C47-4D77-A163-77897393B72B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B27E21-0159-475E-A10D-AA86581D0A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B27E21-0159-475E-A10D-AA86581D0A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B27E21-0159-475E-A10D-AA86581D0A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B27E21-0159-475E-A10D-AA86581D0A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{581630C7-08A7-46E5-9714-8F7616AF03F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{581630C7-08A7-46E5-9714-8F7616AF03F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{581630C7-08A7-46E5-9714-8F7616AF03F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{581630C7-08A7-46E5-9714-8F7616AF03F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
